@@ -15,8 +15,6 @@ for w in "${MISSING_WORKFLOWS[@]}"; do
     ISSUE_BODY+="$w"
 done
 
-echo "$GH_PAT" | gh auth login --with-token
-
 gh issue create \
     --repo "$ORG/$REPOSITORY" \
     --title "$ISSUE_TITLE" \

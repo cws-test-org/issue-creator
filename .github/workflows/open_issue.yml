@@ -14,7 +14,7 @@ jobs:
     name: Check repository (${{ matrix.repository.name }})
     runs-on: ubuntu-latest
     env:
-      GH_PAT: ${{ secrets.CWS_PAT }}
+      GH_TOKEN: ${{ secrets.CWS_PAT }}
     strategy:
       fail-fast: false
     steps:
