@@ -14,11 +14,11 @@ jobs:
     name: Check repository (${{ matrix.repository.name }})
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PAT: ${{ secrets.CWS_PAT }}
     strategy:
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - name: Check repositories
         run: |
-          bash ./scripts/open_issue.sh issue-creator
+          bash ./scripts/open_issue.sh sample-repo

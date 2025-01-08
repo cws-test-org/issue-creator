@@ -9,10 +9,13 @@ REPOSITORY=$1
 MISSING_WORKFLOWS=("test1" "test2" "test3")
 
 ISSUE_TITLE="[Workflows] Missing Workflow(s)"
-ISSUE_BODY="The following workflows are missing from the repository:\n\n"
+ISSUE_BODY="The following workflows are missing from the repository:"
+
 for w in "${MISSING_WORKFLOWS[@]}"; do
-    ISSUE_BODY+="  - $w\n"
+    ISSUE_BODY+="$w"
 done
+
+echo "$GH_PAT" | gh auth login --with-token
 
 gh issue create \
     --repo "$ORG/$REPOSITORY" \
