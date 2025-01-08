@@ -21,4 +21,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check repositories
         run: |
-          bash ./scripts/open_issue.sh sample-repo
+          bash ./scripts/open_issue.sh issue-creator
