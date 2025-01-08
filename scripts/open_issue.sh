@@ -12,7 +12,7 @@ ISSUE_TITLE="[Workflows] Missing Workflow(s)"
 ISSUE_BODY="The following workflows are missing from the repository:"
 
 for w in "${MISSING_WORKFLOWS[@]}"; do
-    ISSUE_BODY+="$w"
+    ISSUE_BODY+=$'\n- '"$w"
 done
 
 gh issue create \
