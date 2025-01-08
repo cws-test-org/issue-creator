@@ -1,0 +1,24 @@
+name: Open Issue In sample-repo
+
+on:
+  push:
+    branches:
+      - "*"
+
+concurrency:
+  group: ${{ github.event.repository.name }}-${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: True
+
+jobs:
+  open_issue:
+    name: Check repository (${{ matrix.repository.name }})
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check repositories
+        run: |
+          bash ./scripts/open_issue.sh sample-repo
